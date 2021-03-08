@@ -2,7 +2,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-
 //include bootstrap npm library into the bundle
 import "bootstrap";
 
@@ -12,39 +11,37 @@ import "../styles/index.scss";
 //import your own components
 function SimpleCounter(props) {
 	return (
-		<div className="BigCounter">
-			<div className="clock">
-				<i className="far fa-clock"></i>
+		<div className="Principal">
+			<div className="Secundaria">
+				<div className="reloj"></div>
+				<div className="CuatroDigitos">{props.NumeroCuatro}</div>
+				<div className="TresDigitos">{props.NumeroTres}</div>
+				<div className="DosDigitos">{props.NumeroDos}</div>
+				<div className="UnoDigitos">{props.NumeroUno}</div>
 			</div>
-			<div className="four">{props.digitFour}</div>
-			<div className="three">{props.digitThree}</div>
-			<div className="two">{props.digitTwo}</div>
-			<div className="one">{props.digitOne}</div>
 		</div>
 	);
 }
+
 SimpleCounter.propTypes = {
-	digitFour: PropTypes.number,
-	digitThree: PropTypes.number,
-	digitTwo: PropTypes.number,
-	digitOne: PropTypes.number
+	NumeroCuatro: PropTypes.number,
+	NumeroTres: PropTypes.number,
+	NumeroDos: PropTypes.number,
+	NumeroUno: PropTypes.number
 };
-
-let counter = 0;
+let contador = 0;
 setInterval(function() {
-	const four = Math.floor(counter / 1000);
-	const three = Math.floor(counter / 100);
-	const two = Math.floor(counter / 10);
-	const one = Math.floor(counter / 1);
-	//console.log(four, three, two, one);
-	counter++;
-
+	const cuatro = Math.floor(contador / 1000);
+	const tres = Math.floor(contador / 100);
+	const dos = Math.floor(contador / 10);
+	const uno = Math.floor(contador / 1);
+	contador++;
 	ReactDOM.render(
 		<SimpleCounter
-			digitOne={one}
-			digitTwo={two}
-			digitThree={three}
-			digitFour={four}
+			NumeroCuatro={cuatro}
+			NumeroTres={tres}
+			NumeroDos={dos}
+			NumeroUno={uno}
 		/>,
 		document.querySelector("#app")
 	);
